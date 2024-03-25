@@ -3,4 +3,4 @@ import SingleNewEksPattern from '../lib/single-new-eks-cluster-pattern';
 
 const app = configureApp();
 
-new SingleNewEksPattern(app, 'single-new-eks');
+new SingleNewEksPattern(app, 'eks-nginx');

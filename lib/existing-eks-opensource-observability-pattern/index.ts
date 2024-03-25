@@ -11,13 +11,13 @@ import * as fs from 'fs';
 export default class ExistingEksOpenSourceobservabilityPattern {
     async buildAsync(scope: cdk.App, id: string) {
 
-        const stackId = `${id}-observability-accelerator`;
+        const stackId = id;
         const clusterName = utils.valueFromContext(scope, "existing.cluster.name", undefined);
         const kubectlRoleName = utils.valueFromContext(scope, "existing.kubectl.rolename", undefined);
 
         const account = process.env.COA_ACCOUNT_ID! || process.env.CDK_DEFAULT_ACCOUNT!;
         const region = process.env.COA_AWS_REGION! || process.env.CDK_DEFAULT_REGION!;
-        const ampWorkspaceName = process.env.COA_AMP_WORKSPACE_NAME! || 'observability-amp-Workspace';
+        const ampWorkspaceName = process.env.COA_AMP_WORKSPACE_NAME! || 'amp-nginx-pdx';
         const ampWorkspace = blueprints.getNamedResource(ampWorkspaceName) as unknown as amp.CfnWorkspace;
         const ampEndpoint = ampWorkspace.attrPrometheusEndpoint;
         const ampWorkspaceArn = ampWorkspace.attrArn;
